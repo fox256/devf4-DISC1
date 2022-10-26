@@ -1,0 +1,4 @@
+../Drivers/SHT20/sht20.c:18:9:SHT20_SoftReset	16	static
+../Drivers/SHT20/sht20.c:30:9:SHT20_ReadUserRegister	16	static
+../Drivers/SHT20/sht20.c:50:7:SHT20_GetTemp	24	static
+../Drivers/SHT20/sht20.c:77:7:SHT20_GetHum	24	static

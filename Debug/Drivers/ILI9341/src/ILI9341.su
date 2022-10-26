@@ -1,0 +1,17 @@
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_spi.h:1115:22:LL_SPI_TransmitData16	24	static
+../Drivers/ILI9341/src/ILI9341.c:28:6:ILI9341_SPI_Init	4	static
+../Drivers/ILI9341/src/ILI9341.c:34:6:ILI9341_SPI_Send16	16	static
+../Drivers/ILI9341/src/ILI9341.c:49:6:ILI9341_SPI_Send	16	static
+../Drivers/ILI9341/src/ILI9341.c:66:6:ILI9341_Write_Command	16	static
+../Drivers/ILI9341/src/ILI9341.c:75:6:ILI9341_Write_Data	16	static
+../Drivers/ILI9341/src/ILI9341.c:84:6:ILI9341_Set_Address	24	static
+../Drivers/ILI9341/src/ILI9341.c:114:6:ILI9341_Reset	8	static
+../Drivers/ILI9341/src/ILI9341.c:124:6:ILI9341_Set_Rotation	24	static
+../Drivers/ILI9341/src/ILI9341.c:160:6:ILI9341_Enable	4	static
+../Drivers/ILI9341/src/ILI9341.c:167:6:ILI9341_Init	8	static
+../Drivers/ILI9341/src/ILI9341.c:331:6:ILI9341_Draw_Colour_Burst	80	dynamic
+../Drivers/ILI9341/src/ILI9341.c:381:6:ILI9341_Fill_Screen	16	static
+../Drivers/ILI9341/src/ILI9341.c:393:6:ILI9341_Draw_Pixel	32	static
+../Drivers/ILI9341/src/ILI9341.c:444:6:ILI9341_Draw_Rectangle	24	static
+../Drivers/ILI9341/src/ILI9341.c:459:6:ILI9341_Draw_Horizontal_Line	24	static
+../Drivers/ILI9341/src/ILI9341.c:471:6:ILI9341_Draw_Vertical_Line	24	static

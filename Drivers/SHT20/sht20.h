@@ -24,5 +24,6 @@
 uint8_t SHT20_SoftReset(void);
 uint8_t SHT20_ReadUserRegister(void);
 float SHT20_GetTemp(void);
+float SHT20_GetHum(void);
 
 #endif /* SHT20_SHT20_H_ */

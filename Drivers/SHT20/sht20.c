@@ -77,6 +77,7 @@ float SHT20_GetTemp(void)
 float SHT20_GetHum(void)
 {
 	uint8_t read_data[3] = {0, 0, 0};
+	uint16_t rH = 0;
 	float humRh = 0;  	//variable for result
 
 	i2c_start(I2C1,10);
@@ -86,12 +87,16 @@ float SHT20_GetHum(void)
 	//read
 	i2c_start(I2C1,10); //repeated start
 	i2c_write_adress(I2C1,SHT20_ADDR_R,10);
-	read_data[0] = i2c_read_data(I2C1,50);	//timeout 50ms for humidity measuring
+	read_data[0] = i2c_read_data(I2C1,50);		//timeout 50ms for humidity measuring
 	read_data[1] = i2c_read_data(I2C1,10);
-	i2c_dis_ack(I2C1); // disable ACK for reading last byte with NACK
+	i2c_dis_ack(I2C1); 							// disable ACK for reading last byte with NACK
 	read_data[2] = i2c_read_data(I2C1,10);
+	i2c_stop(I2C1);
 
+	rH = ((uint16_t)read_data[0] << 8) | read_data[1];
+	rH &= ~0x0003; 							//clear bits [1..0] (status bits)
 
+	humRh = ((float)rH * 0.00190735) - 6;
 
 	return humRh;
 }

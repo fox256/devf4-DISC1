@@ -21,18 +21,16 @@
 #define SEC1_X	215
 
 
-	  //GUI_DispCharAt('1',0,285);
-	  //GUI_DispCharAt('6',30,285);
-
-
 int temp_sec = 0;
 char s[2] = {0};
 char temp_s[2] = {0};
 
-
 int temp_min = 0;
 char m[2] = {0};
 char temp_m[2] = {0};
+
+const char weekdays[7][10] = {"Monday","Tuesday","Wednesday","Thursday", "Friday","Saturday","Sunday"};
+
 
 
 void LCD_home_screen(void)
@@ -105,7 +103,24 @@ void LCD_Print_Time(uint8_t data_h, uint8_t data_m, uint8_t data_s)
 
 }
 
-
+void LCD_Print_Weekday (uint8_t week)
+{
+	GUI_SetColor(GUI_ORANGE);
+	GUI_SetFont(&GUI_Font20_1);
+	GUI_GotoXY(0,255);
+	switch(week)
+	{
+	case 0 :						break;
+	case 1 : GUI_DispString("MON");	break;
+	case 2 : GUI_DispString("TUE");	break;
+	case 3 : GUI_DispString("WED");	break;
+	case 4 : GUI_DispString("THU");	break;
+	case 5 : GUI_DispString("FRI");	break;
+	case 6 : GUI_DispString("SAT");	break;
+	case 7 : GUI_DispString("SUN");	break;
+	default : 						break;
+	}
+}
 
 /*void LCD_update_time(void)
 {

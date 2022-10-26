@@ -1,0 +1,16 @@
+../Drivers/DS3231/ds3231.c:20:6:DS_I2C_start	8	static
+../Drivers/DS3231/ds3231.c:26:6:DS_I2C_stop	8	static
+../Drivers/DS3231/ds3231.c:32:6:DS_I2C_write	16	static
+../Drivers/DS3231/ds3231.c:37:9:DS_I2C_read	16	static
+../Drivers/DS3231/ds3231.c:43:6:DS_I2C_write_add	16	static
+../Drivers/DS3231/ds3231.c:50:9:DS3231_Read	24	static
+../Drivers/DS3231/ds3231.c:66:6:DS3231_Write	16	static
+../Drivers/DS3231/ds3231.c:84:9:DS3231_Get_Sec	16	static
+../Drivers/DS3231/ds3231.c:91:9:DS3231_Get_Min	16	static
+../Drivers/DS3231/ds3231.c:98:9:DS3231_Get_Hours	16	static
+../Drivers/DS3231/ds3231.c:106:9:DS3231_Get_Week	16	static
+../Drivers/DS3231/ds3231.c:114:6:DS3231_Set_Hours	16	static
+../Drivers/DS3231/ds3231.c:119:6:DS3231_Set_Min	16	static
+../Drivers/DS3231/ds3231.c:126:6:rtc_time_init	8	static
+../Drivers/DS3231/ds3231.c:149:16:B2D	16	static
+../Drivers/DS3231/ds3231.c:154:16:D2B	16	static

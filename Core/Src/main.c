@@ -62,6 +62,7 @@ uint8_t seconds = 0;
 
 uint8_t h = 1;
 float tempC = 0;
+float RH = 0;
 
 char null = ' ';
 extern uint16_t outx,outy,outz;
@@ -139,8 +140,6 @@ int main(void)
   LIS3DSH_Init();	//init accel onboard sensor
   SHT20_SoftReset();
   SHT20_ReadUserRegister();
-  SHT20_GetTemp();
-
 
 
  /* HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, SET);
@@ -183,19 +182,16 @@ int main(void)
 
   GUI_DrawGradientH(0,280,120,280,GUI_BLACK,GUI_MAGENTA);
   GUI_DrawGradientH(120,280,240,280,GUI_MAGENTA,GUI_BLACK);
+  DS3231_Set_Hours(22);
+  DS3231_Set_Min(59);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
-	 /*   HAL_ADC_Start(&hadc1);     // Start ADC Conversion
-	    HAL_ADC_PollForConversion(&hadc1, 1); // Poll ADC1 Perihperal & TimeOut = 1mSec
-	    AD_RES = HAL_ADC_GetValue(&hadc1);
-	    HAL_Delay(1); */
 	  LIS3DSH_Measure();
-
 
 	  h = DS3231_Get_Hours();
 	  GUI_SetColor(GUI_WHITE);
@@ -213,11 +209,12 @@ int main(void)
 	  GUI_SetColor(GUI_YELLOW);
 	  GUI_SetFont(&GUI_Font16_1);
 	  GUI_DispFloat(tempC,6);
-	  //------------------------------------------------//
 	  //----------print humidity------------------------//
-
-
+	  RH = SHT20_GetHum();
+	  GUI_GotoXY(0,220);
+	  GUI_DispFloat(RH,6);
 	  //------------------------------------------------//
+	  LCD_Print_Weekday(DS3231_Get_Week());
 	  HAL_Delay(100);
     /* USER CODE END WHILE */
 

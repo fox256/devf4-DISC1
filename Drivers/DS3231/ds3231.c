@@ -10,8 +10,11 @@
 #include "stm32f407xx.h"
 #include <stdint.h>
 
+
 static uint8_t B2D(uint8_t bcd);
 static uint8_t D2B(uint8_t decimal);
+
+rtc_time_t rtc;
 
 /* SETUP CODE BEGIN	*/
 void DS_I2C_start (void)
@@ -66,6 +69,7 @@ void DS3231_Write (uint8_t addr, uint8_t data)
 
 	DS_I2C_write_add(DS3231_ADDRESS);
 	DS_I2C_write(addr);
+	DS_I2C_write(data);
 
 	//DS_I2C_start(); //repeated start
 
@@ -80,40 +84,65 @@ void DS3231_Write (uint8_t addr, uint8_t data)
 uint8_t DS3231_Get_Sec (void)
 {
 	uint8_t sec = 0;
-	sec = B2D(DS3231_Read(0x00));
-
+	sec = B2D(DS3231_Read(DS3231_REG_SECOND));
 	return sec;
 }
 
 uint8_t DS3231_Get_Min (void)
 {
 	uint8_t min = 0;
-	min = B2D(DS3231_Read(0x01));
+	min = B2D(DS3231_Read(DS3231_REG_MINUTE));
 	return min;
-
 }
 
 uint8_t DS3231_Get_Hours (void)
 {
 	uint8_t hours = 0;
-	hours = B2D(DS3231_Read(0x02));
+	hours = B2D(DS3231_Read(DS3231_REG_HOUR));
 	return hours;
 }
 
-void DS3231_Set_12_24 (bool format)
+
+uint8_t DS3231_Get_Week (void)
 {
-	uint8_t reg = 0;
-	if(format == RESET)
-	{
-		reg = DS3231_Read(0x02);
-
-	}
-	else
-	{
-
-	}
+	uint8_t week = 0;
+	week = DS3231_Read(DS3231_REG_WEEK);
+	return week;
 }
 
+//----------set functions--------------------------//
+void DS3231_Set_Hours (uint8_t h)
+{
+	DS3231_Write(DS3231_REG_HOUR,D2B(h));
+}
+
+void DS3231_Set_Min (uint8_t m)
+{
+
+	DS3231_Write(DS3231_REG_MINUTE,D2B(m));
+}
+
+
+void rtc_time_init(void)
+{
+	//default values
+	rtc.sec = 0;
+	rtc.min = 0;
+	rtc.hours = 12;
+	rtc.weekday = 4; 	// Thursday
+	rtc.day = 23;
+	rtc.month = 11; 	// November
+	rtc.year = 89;
+
+	//write data to DS3231
+	DS3231_Write(DS3231_REG_SECOND, D2B	(rtc.sec));
+	DS3231_Write(DS3231_REG_MINUTE,	D2B	(rtc.min));
+	DS3231_Write(DS3231_REG_HOUR,	D2B	(rtc.hours));
+	DS3231_Write(DS3231_REG_WEEK,	D2B	(rtc.weekday));
+	DS3231_Write(DS3231_REG_DATE,	D2B	(rtc.day));
+	DS3231_Write(DS3231_REG_MONTH,	D2B	(rtc.month));
+	DS3231_Write(DS3231_REG_YEAR,	D2B	(rtc.year));
+}
 
 
 

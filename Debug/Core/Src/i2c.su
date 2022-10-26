@@ -1,0 +1,14 @@
+../Core/Src/i2c.c:16:6:i2c1_init	4	static
+../Core/Src/i2c.c:54:6:i2c1_start	4	static
+../Core/Src/i2c.c:64:6:i2c1_write	16	static
+../Core/Src/i2c.c:72:6:i2c1_write_adress	16	static
+../Core/Src/i2c.c:82:9:i2c1_read	16	static
+../Core/Src/i2c.c:90:7:i2c1_stop	4	static
+../Core/Src/i2c.c:96:9:i2c1_test	16	static
+../Core/Src/i2c.c:117:9:i2c_start	24	static
+../Core/Src/i2c.c:134:9:i2c_write_adress	32	static
+../Core/Src/i2c.c:154:9:i2c_write_data	32	static
+../Core/Src/i2c.c:170:9:i2c_read_data	24	static
+../Core/Src/i2c.c:185:6:i2c_stop	16	static
+../Core/Src/i2c.c:191:6:i2c_en_ack	16	static
+../Core/Src/i2c.c:196:6:i2c_dis_ack	16	static
