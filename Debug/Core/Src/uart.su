@@ -1,4 +1,0 @@
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h:1803:26:LL_USART_IsActiveFlag_TC	16	static
-../Core/Src/uart.c:12:6:uart_tx	16	static
-../Core/Src/uart.c:20:6:send_str	24	static
-../Core/Src/uart.c:29:6:send_strf	112	static

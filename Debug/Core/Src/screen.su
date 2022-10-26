@@ -1,3 +1,0 @@
-../Core/Src/screen.c:36:6:LCD_home_screen	16	static
-../Core/Src/screen.c:48:6:LCD_Print_Time	16	static
-../Core/Src/screen.c:106:6:LCD_Print_Weekday	16	static

@@ -1,6 +1,0 @@
-../Drivers/LIS3DS/lis3dsh.c:18:6:lis_tx_8b	16	static
-../Drivers/LIS3DS/lis3dsh.c:23:9:lis_rx_8b	16	static
-../Drivers/LIS3DS/lis3dsh.c:35:9:LIS3DSH_Read	24	static
-../Drivers/LIS3DS/lis3dsh.c:47:6:LIS3DSH_Write	16	static
-../Drivers/LIS3DS/lis3dsh.c:56:6:LIS3DSH_Init	8	static
-../Drivers/LIS3DS/lis3dsh.c:68:6:LIS3DSH_Measure	8	static
